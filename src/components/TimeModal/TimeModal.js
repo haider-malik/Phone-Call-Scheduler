@@ -1,19 +1,33 @@
-import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { actionCreators } from '../../state/index';
 import './timemodal.css';
 
 const TimeModal = () => {
-	const [info, setInfo] = useState({ name: '', phone: '' });
+	const dispatch = useDispatch();
+	const { currTimeSlot } = useSelector((state) => state.timeSlotsData);
 
 	const infoChange = (e) => {
-		setInfo({ ...info, [e.target.name]: e.target.value });
+		dispatch(
+			actionCreators.setCurrTimeSlot({
+				...currTimeSlot,
+				name: e.target.value,
+				phone: e.target.phone,
+			})
+		);
+	};
+
+	const closeModal = () => {
+		dispatch(actionCreators.setCurrTimeSlot(null));
 	};
 
 	return (
-		<div className="modal_wrapper active">
+		<div className={`modal_wrapper ${currTimeSlot && 'active'}`}>
 			<div className="modal_body">
 				<div className="modal_header">
-					<h2>Timings</h2>
-					<button className="modal_close_btn">×</button>
+					<h2>{currTimeSlot && currTimeSlot.time}</h2>
+					<button className="modal_close_btn" onClick={closeModal}>
+						×
+					</button>
 				</div>
 				<form className="modal_form">
 					<input
@@ -21,7 +35,7 @@ const TimeModal = () => {
 						type="text"
 						name="name"
 						id="name"
-						value={info.name}
+						value={currTimeSlot !== null ? currTimeSlot.name : ''}
 						onChange={infoChange}
 					/>
 					<input
@@ -29,7 +43,7 @@ const TimeModal = () => {
 						type="number"
 						name="phone"
 						id="phone"
-						value={info.phone}
+						value={currTimeSlot !== null ? currTimeSlot.phone : ''}
 						onChange={infoChange}
 					/>
 					<button type="submit" className="updateBtn">

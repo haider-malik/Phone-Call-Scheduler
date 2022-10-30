@@ -2,8 +2,10 @@ import TimeSlot from './components/TimeSlot/TimeSlot';
 import './app.css';
 import { useEffect, useState } from 'react';
 import TimeModal from './components/TimeModal/TimeModal';
+import { useSelector } from 'react-redux';
 
 function App() {
+	const { timeSlots } = useSelector((state) => state.timeSlotsData);
 	const [dateToday, setDateToday] = useState(null);
 
 	useEffect(() => {
@@ -23,24 +25,9 @@ function App() {
 				<div className="today">{dateToday}</div>
 			</nav>
 			<main>
-				<TimeSlot
-					time={'8 AM to 9 AM'}
-					name={'John Doe'}
-					phone={'+91 8897651235'}
-					color={'whitesmoke'}
-				></TimeSlot>
-				<TimeSlot
-					time={'8 AM to 9 AM'}
-					name={'John Doe'}
-					phone={'+91 8897651235'}
-					color={'white'}
-				></TimeSlot>
-				<TimeSlot
-					time={'8 AM to 9 AM'}
-					name={'John Doe'}
-					phone={'+91 8897651235'}
-					color={'whitesmoke'}
-				></TimeSlot>
+				{timeSlots.map((timeSlot, idx) => {
+					return <TimeSlot key={idx} data={timeSlot} id={idx}></TimeSlot>;
+				})}
 			</main>
 		</section>
 	);
