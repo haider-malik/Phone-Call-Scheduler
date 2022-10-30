@@ -1,0 +1,25 @@
+.main {
+	--padding-x: 6vmin;
+	--padding-y: 1.8vmin;
+	--font-size: 2.5vmin;
+	cursor: pointer;
+	font-size: var(--font-size);
+	font-family: 'Lato', sans-serif;
+	position: relative;
+	display: flex;
+	padding: var(--padding-y) var(--padding-x);
+	justify-content: space-between;
+	border-radius: 1vmin;
+	flex-wrap: wrap;
+}
+
+.time {
+	font-weight: 600;
+}
+
+.details {
+	flex-grow: 0.1;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}

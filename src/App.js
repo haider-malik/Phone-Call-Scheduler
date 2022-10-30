@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import TimeSlot from './components/TimeSlot/TimeSlot';
+import './app.css';
+import { useEffect, useState } from 'react';
+import TimeModal from './components/TimeModal/TimeModal';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [dateToday, setDateToday] = useState(null);
+
+	useEffect(() => {
+		let currDate = new Date(Date.now());
+		currDate = currDate.toDateString();
+		setDateToday(currDate);
+	}, [dateToday]);
+
+	return (
+		<section className="wrapper">
+			<section className="updateModal">
+				{' '}
+				<TimeModal />{' '}
+			</section>
+			<nav className="nav">
+				<h1 className="heading">Phone Call Scheduler</h1>
+				<div className="today">{dateToday}</div>
+			</nav>
+			<main>
+				<TimeSlot
+					time={'8 AM to 9 AM'}
+					name={'John Doe'}
+					phone={'+91 8897651235'}
+					color={'whitesmoke'}
+				></TimeSlot>
+				<TimeSlot
+					time={'8 AM to 9 AM'}
+					name={'John Doe'}
+					phone={'+91 8897651235'}
+					color={'white'}
+				></TimeSlot>
+				<TimeSlot
+					time={'8 AM to 9 AM'}
+					name={'John Doe'}
+					phone={'+91 8897651235'}
+					color={'whitesmoke'}
+				></TimeSlot>
+			</main>
+		</section>
+	);
 }
 
 export default App;

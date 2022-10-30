@@ -1,38 +1,36 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+.wrapper {
+	--nav-padding-y: 2.4vmin;
+	--nav-padding-x: 0;
+	--heading-font-size: 5vmin;
+	--dateToday-font-size: 2.5vmin;
+	--dateToday-padding-x: 1.8vmin;
+	--dateToday-padding-y: 1vmin;
+	position: relative;
+	width: 95%;
+	max-width: 1000px;
+	margin: auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	padding: var(--nav-padding-y) var(--nav-padding-x);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.heading {
+	font-family: sans-serif;
+	font-size: var(--heading-font-size);
+	margin: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.today {
+	font-family: 'Lato', sans-serif;
+	font-size: var(--dateToday-font-size);
+	border: 0.3vmin solid rgb(22, 22, 22);
+	border-radius: 1.2vmin;
+	padding: var(--dateToday-padding-y) var(--dateToday-padding-x);
 }
