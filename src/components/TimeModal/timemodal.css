@@ -1,0 +1,106 @@
+.modal_wrapper {
+	--body-padding-x: 4vmin;
+	--body-padding-y: 2.5vmin;
+	--body-margin: 5vmin;
+	--header-margin: 2.5vmin;
+	--input-margin: 1.7vmin;
+	--input-padding-x: 1.8vmin;
+	--input-padding-y: 1.5vmin;
+	--input-font-size: 2.5vmin;
+	--h2-font-size: 5vmin;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	position: fixed;
+	top: 0;
+	left: 0;
+	inset: 0;
+	z-index: 2;
+}
+
+.modal_body {
+	z-index: 2;
+	opacity: 0;
+	transform: translateY(-60%);
+	margin-top: var(--body-margin);
+	padding: var(--body-padding-y) var(--body-padding-x);
+	background-color: white;
+	width: 80vw;
+	max-width: 350px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.081);
+	border-radius: 1.5vmin;
+	transition: all 0.4s ease;
+}
+
+.modal_wrapper::before {
+	opacity: 0;
+	content: '';
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.051);
+	z-index: -1;
+	transition: all 0.4s ease;
+}
+
+.modal_header {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: var(--header-margin);
+}
+
+.modal_header > h2 {
+	font-size: var(--h2-font-size);
+	margin: 0;
+}
+
+.modal_close_btn {
+	color: black;
+	cursor: pointer;
+	background-color: white;
+	border: none;
+	outline: none;
+	font-weight: bold !important;
+	font-size: var(--h2-font-size);
+}
+
+.modal_form {
+	display: flex;
+	flex-direction: column;
+}
+
+.modal_form > input {
+	font-size: var(--input-font-size);
+	border: none;
+	outline: none;
+	padding: var(--input-padding-y) var(--input-padding-x);
+	margin-bottom: var(--input-margin);
+	font-family: 'Lato', sans-serif;
+	background-color: whitesmoke;
+	border-radius: 1vmin;
+}
+
+.updateBtn {
+	border: none;
+	outline: none;
+	cursor: pointer;
+	background-color: #0168d9;
+	color: white;
+	padding: var(--input-padding-y) var(--input-padding-x);
+	margin-top: var(--input-margin);
+	border-radius: 1vmin;
+	font-size: calc(1.1 * var(--input-font-size));
+	font-family: sans-serif;
+	font-weight: bold;
+}
+
+.active::before {
+	opacity: 1;
+}
+
+.active > .modal_body {
+	opacity: 1;
+	transform: translateY(0);
+}
