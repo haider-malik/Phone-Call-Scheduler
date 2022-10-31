@@ -22,11 +22,15 @@ function App() {
 			</section>
 			<nav className="nav">
 				<h1 className="heading">Phone Call Scheduler</h1>
-				<div className="today">{dateToday}</div>
+				<div className="today_wrapper">
+					<div className="today">{dateToday}</div>
+				</div>
 			</nav>
 			<main>
 				{timeSlots.map((timeSlot, idx) => {
-					return <TimeSlot key={idx} data={timeSlot} id={idx}></TimeSlot>;
+					return (
+						<TimeSlot key={idx} timeSlotData={timeSlot} id={idx}></TimeSlot>
+					);
 				})}
 			</main>
 		</section>

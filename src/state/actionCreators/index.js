@@ -5,14 +5,14 @@ export const setCurrTimeSlot = (currTimeSlot) => {
 	};
 };
 
-export const updateTimeSlot = (id, data) => {
+export const updateTimeSlot = (data) => {
 	return (dispatch) => {
-		dispatch({ type: 'updateTimeSlot', payload: { id, data } });
+		dispatch({ type: 'updateTimeSlot', payload: data });
 	};
 };
 
-export const upscheduleTimeSlot = (id) => {
+export const unscheduleTimeSlot = (startTime) => {
 	return (dispatch) => {
-		dispatch({ type: 'updateTimeSlot', payload: { id } });
+		dispatch({ type: 'unscheduleTimeSlot', payload: { startTime } });
 	};
 };

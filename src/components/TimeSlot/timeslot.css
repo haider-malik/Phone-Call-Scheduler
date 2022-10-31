@@ -1,7 +1,8 @@
 .main {
 	--padding-x: 6vmin;
 	--padding-y: 1.8vmin;
-	--font-size: 2.5vmin;
+	--font-size: 2.8vmin;
+	--margin-y: 0;
 	cursor: pointer;
 	font-size: var(--font-size);
 	font-family: 'Lato', sans-serif;
@@ -11,15 +12,46 @@
 	justify-content: space-between;
 	border-radius: 1vmin;
 	flex-wrap: wrap;
+	background-color: #caebfc;
 }
 
 .time {
+	text-align: center;
+	margin-top: var(--margin-y);
+	margin-bottom: var(--margin-y);
 	font-weight: 600;
 }
 
 .details {
+	margin-bottom: var(--margin-y);
 	flex-grow: 0.1;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
+}
+
+.details > span {
+	margin-bottom: var(--margin-y);
+}
+
+@media only screen and (max-width: 612px) and (min-width: 500px) {
+	.main {
+		--font-size: 3.8vmin;
+		--margin-y: 0;
+		--padding-x: 3vmin;
+		--padding-y: 2vmin;
+		align-items: center;
+		border-radius: 2.5vmin;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.main {
+		--font-size: 5.5vmin;
+		--margin-y: 3vmin;
+		justify-content: center;
+		align-items: center;
+		border-radius: 2.5vmin;
+		flex-direction: column;
+	}
 }
